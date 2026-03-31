@@ -1,0 +1,13 @@
+import { createBrowserClient } from '@supabase/ssr'
+
+/**
+ * Browser (client-component) Supabase instance.
+ * Uses the public anon key — safe to expose in the browser.
+ * RLS policies on the database enforce data access.
+ */
+export function createClient() {
+  return createBrowserClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  )
+}
